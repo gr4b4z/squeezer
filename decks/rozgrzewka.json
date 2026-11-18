@@ -1,0 +1,12 @@
+{
+  "id": "rozgrzewka",
+  "title": "Rozgrzewka",
+  "description": "Krótki quiz na start: slajd powitalny i cztery pytania jednokrotnego wyboru.",
+  "slides": [
+    { "type": "content", "id": "intro", "title": "Witaj w Squeezerze", "body": "Za chwilę cztery pytania. Odpowiadasz na telefonie, wynik zobaczysz od razu." },
+    { "type": "single", "id": "q1", "question": "Która planeta jest najbliżej Słońca?", "options": ["Wenus", "Merkury", "Mars", "Ziemia"], "correct": 1, "timeLimit": 20, "explanation": "Merkury krąży średnio 58 mln km od Słońca." },
+    { "type": "single", "id": "q2", "question": "Ile bitów ma jeden bajt?", "options": ["4", "16", "8", "32"], "correct": 2, "timeLimit": 20 },
+    { "type": "single", "id": "q3", "question": "W którym roku Polska wstąpiła do Unii Europejskiej?", "options": ["2004", "1999", "2007", "2002"], "correct": 0, "timeLimit": 20 },
+    { "type": "single", "id": "q4", "question": "Który język działa w przeglądarce bez kompilacji?", "options": ["C#", "Rust", "Go", "JavaScript"], "correct": 3, "timeLimit": 20 }
+  ]
+}

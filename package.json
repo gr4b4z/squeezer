@@ -1,0 +1,31 @@
+{
+  "name": "squeezer",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@10.28.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --parallel --filter @squeezer/gateway --filter @squeezer/web dev",
+    "build": "pnpm --filter @squeezer/web build",
+    "start": "pnpm --filter @squeezer/gateway start",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test",
+    "e2e": "playwright test",
+    "load": "tsx scripts/load-test.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.5",
+    "@types/ws": "8.18.2",
+    "tsx": "4.23.15",
+    "typescript": "5.9.3",
+    "ws": "8.23.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

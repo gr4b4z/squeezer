@@ -1,0 +1,120 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+/* Expose tokens as Tailwind utilities: bg-surface, text-muted, font-display, bg-a1 … */
+@theme inline {
+  --color-bg: var(--sq-bg);
+  --color-surface: var(--sq-surface);
+  --color-surface-2: var(--sq-surface-2);
+  --color-ink: var(--sq-ink);
+  --color-muted: var(--sq-muted);
+  --color-line: var(--sq-line);
+  --color-pulp: var(--sq-pulp);
+  --color-pulp-ink: var(--sq-pulp-ink);
+  --color-on-pulp: var(--sq-on-pulp);
+  --color-good: var(--sq-good);
+  --color-bad: var(--sq-bad);
+  --color-idle: var(--sq-none);
+  --color-good-bg: var(--sq-good-bg);
+  --color-bad-bg: var(--sq-bad-bg);
+  --color-idle-bg: var(--sq-none-bg);
+  --color-a1: var(--sq-a1);
+  --color-a2: var(--sq-a2);
+  --color-a3: var(--sq-a3);
+  --color-a4: var(--sq-a4);
+  --color-a5: var(--sq-a5);
+  --color-a6: var(--sq-a6);
+  --color-on-a: var(--sq-on-a);
+  --color-st-bg: var(--sq-st-bg);
+  --color-st-surface: var(--sq-st-surface);
+  --color-st-line: var(--sq-st-line);
+  --color-st-ink: var(--sq-st-ink);
+  --color-st-muted: var(--sq-st-muted);
+  --font-display: var(--sq-font-display);
+  --font-sans: var(--sq-font-ui);
+  --ease-spring: var(--sq-spring);
+  --ease-sq: var(--sq-ease);
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+  body {
+    background: var(--sq-bg);
+    color: var(--sq-ink);
+    font-family: var(--sq-font-ui);
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--sq-font-display);
+    text-wrap: balance;
+    line-height: 1.08;
+  }
+  :focus-visible {
+    outline: 3px solid var(--sq-pulp);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  /* Squeeze on press: wider and lower, not just smaller */
+  .squish {
+    transition: transform var(--sq-t-press) var(--sq-ease);
+  }
+  .squish:active {
+    transform: scale(1.05, 0.9);
+  }
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  .gutter {
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wordmark-ee {
+    display: inline-block;
+    transform: scaleX(0.74);
+    margin: 0 -0.09em;
+  }
+}
+
+@keyframes sq-pop {
+  0% { transform: scale(0.3); opacity: 0; }
+  60% { transform: scale(1.12, 0.9); opacity: 1; }
+  100% { transform: none; }
+}
+@keyframes sq-wave {
+  to { transform: translateX(-140px); }
+}
+@keyframes sq-pulse {
+  50% { transform: scale(1.6); opacity: 0.4; }
+}
+@keyframes sq-rise {
+  from { transform: scaleY(0); }
+  to { transform: none; }
+}
+.anim-pop { animation: sq-pop 520ms var(--sq-spring) both; }
+.anim-pulse { animation: sq-pulse 1.4s ease-in-out infinite; }
+.anim-rise { animation: sq-rise 900ms var(--sq-spring) both; transform-origin: bottom; }
+.glass-wave { animation: sq-wave 2.2s linear infinite; }
+.glass-wave-slow { animation: sq-wave 3.4s linear infinite; opacity: 0.55; }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}

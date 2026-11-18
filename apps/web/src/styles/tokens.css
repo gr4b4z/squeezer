@@ -1,0 +1,85 @@
+/*
+ * Squeezer design tokens (brand v1, approved prototype).
+ * Change colours, type and motion here only; components read these variables.
+ * Answer markers and the presenter stage look the same in both themes on purpose.
+ */
+:root {
+  --sq-bg: #f2f5f4;
+  --sq-surface: #ffffff;
+  --sq-surface-2: #e8eeec;
+  --sq-ink: #14201e;
+  --sq-muted: #56635f;
+  --sq-line: #d5dedb;
+  --sq-pulp: #ff7a2f;
+  --sq-pulp-ink: #a84300;
+  --sq-on-pulp: #1a0e05;
+  --sq-good: #12805a;
+  --sq-bad: #c23636;
+  --sq-none: #7d8986;
+  --sq-good-bg: #ddf3ea;
+  --sq-bad-bg: #fbe3e3;
+  --sq-none-bg: #e9edec;
+
+  /* Answer markers A–F: dark ink on top, contrast ≥ 4.5:1 */
+  --sq-a1: #ff8a3d;
+  --sq-a2: #2ec4b6;
+  --sq-a3: #ffd23f;
+  --sq-a4: #ff6b9a;
+  --sq-a5: #b49cff;
+  --sq-a6: #7bd389;
+  --sq-on-a: #141414;
+
+  /* Presenter stage: always dark (projectors, dim rooms) */
+  --sq-st-bg: #0f1a19;
+  --sq-st-surface: #17262a;
+  --sq-st-line: #25383a;
+  --sq-st-ink: #f1f6f4;
+  --sq-st-muted: #93a7a3;
+
+  --sq-font-display: 'Bricolage Grotesque Variable', 'Avenir Next', 'Segoe UI', system-ui, sans-serif;
+  --sq-font-ui: 'Figtree Variable', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* Motion */
+  --sq-t-press: 120ms;
+  --sq-t-state: 260ms;
+  --sq-t-reveal: 900ms;
+  --sq-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --sq-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --sq-bg: #0c1413;
+    --sq-surface: #15201f;
+    --sq-surface-2: #1c2a28;
+    --sq-ink: #ecf3f1;
+    --sq-muted: #9aaaa6;
+    --sq-line: #263532;
+    --sq-pulp-ink: #ff9b5e;
+    --sq-good: #3dd68c;
+    --sq-bad: #ff7070;
+    --sq-none: #76847f;
+    --sq-good-bg: #123326;
+    --sq-bad-bg: #3a1a1a;
+    --sq-none-bg: #1f2a28;
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --sq-bg: #0c1413;
+  --sq-surface: #15201f;
+  --sq-surface-2: #1c2a28;
+  --sq-ink: #ecf3f1;
+  --sq-muted: #9aaaa6;
+  --sq-line: #263532;
+  --sq-pulp-ink: #ff9b5e;
+  --sq-good: #3dd68c;
+  --sq-bad: #ff7070;
+  --sq-none: #76847f;
+  --sq-good-bg: #123326;
+  --sq-bad-bg: #3a1a1a;
+  --sq-none-bg: #1f2a28;
+  color-scheme: dark;
+}

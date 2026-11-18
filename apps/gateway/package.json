@@ -1,0 +1,21 @@
+{
+  "name": "@squeezer/gateway",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "NODE_ENV=production tsx src/index.ts",
+    "typecheck": "tsc -p .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/static": "10.1.11",
+    "@fastify/websocket": "11.3.7",
+    "@squeezer/shared": "workspace:*",
+    "fastify": "5.12.8",
+    "ws": "8.23.0",
+    "zod": "4.6.7"
+  },
+  "devDependencies": { "vitest": "4.1.12" }
+}
